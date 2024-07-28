@@ -30,7 +30,7 @@ export const oboFlowPluginPlugin = createBackendPlugin({
           }),
         );
         httpRouter.addAuthPolicy({
-          path: '/health',
+          path: '/proxy',
           allow: 'unauthenticated',
         });
       },

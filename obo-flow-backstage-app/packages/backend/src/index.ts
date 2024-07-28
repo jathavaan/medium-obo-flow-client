@@ -17,12 +17,13 @@ backend.add(import('@backstage/plugin-techdocs-backend/alpha'));
 
 // auth plugin
 backend.add(import('@backstage/plugin-auth-backend'));
-// See https://backstage.io/docs/backend-system/building-backends/migrating#the-auth-plugin
+backend.add(import('@backstage/plugin-auth-backend-module-microsoft-provider'));
 backend.add(import('@backstage/plugin-auth-backend-module-guest-provider'));
-// See https://backstage.io/docs/auth/guest/provider
+
 
 // catalog plugin
 backend.add(import('@backstage/plugin-catalog-backend/alpha'));
+backend.add(import('@backstage/plugin-catalog-backend-module-msgraph/alpha'));
 backend.add(
   import('@backstage/plugin-catalog-backend-module-scaffolder-entity-model'),
 );
@@ -47,5 +48,7 @@ backend.add(import('@backstage/plugin-search-backend-module-pg/alpha'));
 backend.add(import('@backstage/plugin-search-backend-module-catalog/alpha'));
 backend.add(import('@backstage/plugin-search-backend-module-techdocs/alpha'));
 
+// Backend plugin
 backend.add(import('@internal/backstage-plugin-obo-flow-plugin-backend'));
+
 backend.start();

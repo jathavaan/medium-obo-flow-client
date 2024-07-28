@@ -37,6 +37,7 @@ import { CatalogGraphPage } from '@backstage/plugin-catalog-graph';
 import { RequirePermission } from '@backstage/plugin-permission-react';
 import { catalogEntityCreatePermission } from '@backstage/plugin-catalog-common/alpha';
 import { OboFlowPluginFrontendPage } from '@internal/backstage-plugin-obo-flow-plugin-frontend';
+import { microsoftAuthApiRef } from '@backstage/core-plugin-api';
 
 const app = createApp({
   apis,
@@ -58,10 +59,23 @@ const app = createApp({
     });
   },
   components: {
-    SignInPage: props => <SignInPage {...props} auto providers={['guest']} />,
+    SignInPage: props => (
+      <SignInPage
+        {...props}
+        auto
+        providers={[
+          'guest',
+          {
+            id: 'microsoft-auth-provider',
+            title: 'Microsoft',
+            message: 'Sign in using Microsoft',
+            apiRef: microsoftAuthApiRef,
+          },
+        ]}
+      />
+    ),
   },
 });
-
 const routes = (
   <FlatRoutes>
     <Route path="/" element={<Navigate to="catalog" />} />
@@ -96,7 +110,10 @@ const routes = (
     </Route>
     <Route path="/settings" element={<UserSettingsPage />} />
     <Route path="/catalog-graph" element={<CatalogGraphPage />} />
-    <Route path="/obo-flow-plugin-frontend" element={<OboFlowPluginFrontendPage />} />
+    <Route
+      path="/obo-flow-plugin-frontend"
+      element={<OboFlowPluginFrontendPage />}
+    />
   </FlatRoutes>
 );
 

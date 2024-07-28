@@ -16,7 +16,7 @@ export const OboFlowPluginFrontendPage = oboFlowPluginFrontendPlugin.provide(
   createRoutableExtension({
     name: 'OboFlowPluginFrontendPage',
     component: () =>
-      import('./components/ExampleComponent').then(m => m.ExampleComponent),
+      import('./components/OboFlowPluginPage').then(m => m.OboFlowPluginPage),
     mountPoint: rootRouteRef,
   }),
 );
