@@ -5,7 +5,7 @@ import { UserTable } from '../UserTable';
 import { UserRole } from '../UserTable/types';
 
 export const OboFlowPluginPage = () => {
-  const [userRole, setUserRle] = useState<UserRole>(UserRole.User);
+  const [userRole, setUserRole] = useState<UserRole>(UserRole.User);
 
   return (
     <Page themeId="tool">
@@ -29,7 +29,7 @@ export const OboFlowPluginPage = () => {
                   <Button
                     variant="contained"
                     color="primary"
-                    onClick={() => setUserRle(UserRole.User)}
+                    onClick={() => setUserRole(UserRole.User)}
                   >
                     <Typography variant="body1">Show normal users</Typography>
                   </Button>
@@ -42,7 +42,7 @@ export const OboFlowPluginPage = () => {
                   <Button
                     variant="contained"
                     color="primary"
-                    onClick={() => setUserRle(UserRole.Moderator)}
+                    onClick={() => setUserRole(UserRole.Moderator)}
                   >
                     <Typography variant="body1">Show moderators</Typography>
                   </Button>
@@ -55,7 +55,7 @@ export const OboFlowPluginPage = () => {
                   <Button
                     variant="contained"
                     color="primary"
-                    onClick={() => setUserRle(UserRole.Admin)}
+                    onClick={() => setUserRole(UserRole.Admin)}
                   >
                     <Typography variant="body1">Show admins</Typography>
                   </Button>

@@ -5,8 +5,8 @@ import {
   Progress,
   ResponseErrorPanel,
 } from '@backstage/core-components';
-import { getUsersByRole } from './userTableService';
-import { User, UserRole, UserTableProps } from './types';
+import { convertUserRoleToName, getUsersByRole } from './userTableService';
+import { User, UserTableProps } from './types';
 import {
   configApiRef,
   microsoftAuthApiRef,
@@ -17,19 +17,6 @@ import { FetchProps } from '../../commons/types';
 type DenseTableProps = {
   userRoleName: string;
   users: User[];
-};
-
-const convertUserRoleToName = (userRole: UserRole) => {
-  switch (userRole) {
-    case UserRole.User:
-      return 'Normal users';
-    case UserRole.Moderator:
-      return 'Moderators';
-    case UserRole.Admin:
-      return 'Admins';
-    default:
-      return 'Invalid role';
-  }
 };
 
 export const DenseTable = ({ userRoleName, users }: DenseTableProps) => {

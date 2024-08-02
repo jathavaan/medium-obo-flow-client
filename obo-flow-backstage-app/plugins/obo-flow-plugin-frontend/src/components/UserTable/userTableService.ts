@@ -22,3 +22,16 @@ export const getUsersByRole = async (
     userRole: UserRole[user.userRole] || UserRole.User,
   }));
 };
+
+export const convertUserRoleToName = (userRole: UserRole) => {
+  switch (userRole) {
+    case UserRole.User:
+      return 'Normal users';
+    case UserRole.Moderator:
+      return 'Moderators';
+    case UserRole.Admin:
+      return 'Admins';
+    default:
+      return 'Invalid role';
+  }
+};
