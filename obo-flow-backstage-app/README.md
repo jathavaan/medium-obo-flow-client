@@ -1,4 +1,5 @@
 # OBO flow Backstage app
+This is the backend for the example project presented in the medium article [Tilgangsstyring gjort enkelt med OBO-flyt]().
 
 ## Startup
 
